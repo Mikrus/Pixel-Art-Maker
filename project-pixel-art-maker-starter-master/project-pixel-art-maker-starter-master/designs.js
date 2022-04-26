@@ -17,9 +17,10 @@ sizePicker.addEventListener("submit", function (event) {
   makeGrid()
 });
 
-/*
-Older canvas / tables will be removed when inputs are submitted.
-Grid is created with our function.
+/** 
+ * Old grids are cleared out.
+ * We have created our grid.
+ * In the event listener, we also added the canvas / table from being removed when hitting submit again.
 */
 
 function makeGrid() {
@@ -34,8 +35,9 @@ for (let x = 0; x < width.value; x++) {
     for (let z = 0; z < height.value; z++) {
         // Create cell
         let cell = document.createElement('td')
-        // Add an event listener that adds color to our canvas
+        // Add an event listener that adds color to our canvas 
         cell.addEventListener("click", function (e) {
+          e.preventDefault();
             cell.style.backgroundColor = color.value;
         })
         // Add cells to rows
