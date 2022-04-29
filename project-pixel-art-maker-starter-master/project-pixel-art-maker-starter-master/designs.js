@@ -17,15 +17,15 @@ sizePicker.addEventListener("submit", function (event) {
   makeGrid()
 });
 
-/** 
- * Old grids are cleared out.
+/** Grids that have color/are not empty will not be removed once hitting submit.
  * We have created our grid.
- * In the event listener, we also added the canvas / table from being removed when hitting submit again.
 */
 
 function makeGrid() {
 
-canvas.innerHTML = "";
+if (canvas.innerHTML !== "") {
+  return;
+}
 
 // For each row
 for (let x = 0; x < width.value; x++) {
